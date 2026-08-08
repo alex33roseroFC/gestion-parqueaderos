@@ -129,7 +129,9 @@ Consulte `diagrama_uml.puml` para ver el diagrama completo de clases y sus relac
 Para más información sobre arquitectura, diseño y detalles de implementación, consulte el archivo `docs/Informe_Tecnico.md`.
 
 ## Autor
-[Nombre del Estudiante]
+**Alex Esteban Rosero Gualguan**
+
+**GitHub**: [https://github.com/alex33roseroFC](https://github.com/alex33roseroFC)
 
 ## Fecha de Creación
 2026
