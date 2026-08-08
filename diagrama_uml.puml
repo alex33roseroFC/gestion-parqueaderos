@@ -1,0 +1,157 @@
+@startuml diagrama_parqueadero
+!theme plain
+skinparam classBackgroundColor #E1F5FE
+skinparam classBorderColor #01579B
+skinparam arrowColor #01579B
+skinparam packageStyle rectangle
+
+package "com.parqueadero.modelo" {
+    abstract class Vehiculo {
+        #placa: String
+        #marca: String
+        #modelo: String
+        #horaEntrada: LocalDateTime
+        --
+        +Vehiculo(String, String, String, LocalDateTime)
+        +getPlaca(): String
+        +setPlaca(String): void
+        +getMarca(): String
+        +setMarca(String): void
+        +getModelo(): String
+        +setModelo(String): void
+        +getHoraEntrada(): LocalDateTime
+        +setHoraEntrada(LocalDateTime): void
+        {abstract}+calcularTarifa(LocalDateTime): double
+        {abstract}+getTipo(): String
+        #calcularHoras(LocalDateTime): long
+        +toString(): String
+    }
+
+    class Automovil {
+        -tipoCombustible: String
+        -{static}TARIFA_POR_HORA: double = 5000
+        --
+        +Automovil(String, String, String, LocalDateTime, String)
+        +getTipoCombustible(): String
+        +setTipoCombustible(String): void
+        +calcularTarifa(LocalDateTime): double
+        +getTipo(): String
+        +toString(): String
+    }
+
+    class Motocicleta {
+        -cilindraje: int
+        -{static}TARIFA_POR_HORA: double = 2000
+        --
+        +Motocicleta(String, String, String, LocalDateTime, int)
+        +getCilindraje(): int
+        +setCilindraje(int): void
+        +calcularTarifa(LocalDateTime): double
+        +getTipo(): String
+        +toString(): String
+    }
+
+    class Camion {
+        -capacidadCarga: double
+        -{static}TARIFA_POR_HORA: double = 8000
+        --
+        +Camion(String, String, String, LocalDateTime, double)
+        +getCapacidadCarga(): double
+        +setCapacidadCarga(double): void
+        +calcularTarifa(LocalDateTime): double
+        +getTipo(): String
+        +toString(): String
+    }
+
+    Vehiculo <|-- Automovil : hereda
+    Vehiculo <|-- Motocicleta : hereda
+    Vehiculo <|-- Camion : hereda
+}
+
+package "com.parqueadero.gestion" {
+    class Parqueadero {
+        -nombre: String
+        -capacidadTotal: int
+        -vehiculosActuales: List<Vehiculo>
+        -historialSalidas: List<RegistroVehiculo>
+        --
+        +Parqueadero(String, int)
+        +getNombre(): String
+        +setNombre(String): void
+        +getCapacidadTotal(): int
+        +setCapacidadTotal(int): void
+        +getEspaciosDisponibles(): int
+        +getVehiculosPresentes(): int
+        +registrarEntrada(Vehiculo): boolean
+        +registrarSalida(String, LocalDateTime): double
+        +buscarVehiculo(String): Optional<Vehiculo>
+        +obtenerVehiculosPresentes(): List<Vehiculo>
+        +obtenerHistorialSalidas(): List<RegistroVehiculo>
+        +calcularIngresoTotal(): double
+        +obtenerResumenEstado(): String
+        +toString(): String
+    }
+
+    class RegistroVehiculo {
+        -vehiculo: Vehiculo
+        -horaSalida: LocalDateTime
+        -costo: double
+        --
+        +RegistroVehiculo(Vehiculo, LocalDateTime, double)
+        +getVehiculo(): Vehiculo
+        +getHoraSalida(): LocalDateTime
+        +getCosto(): double
+        +toString(): String
+    }
+
+    Parqueadero *-- "0..*" Vehiculo : gestiona
+    Parqueadero *-- "0..*" RegistroVehiculo : registra
+}
+
+package "com.parqueadero.ui" {
+    class MenuConsola {
+        -parqueadero: Parqueadero
+        -scanner: Scanner
+        -formatter: DateTimeFormatter
+        --
+        +MenuConsola(Parqueadero)
+        +iniciar(): void
+        -mostrarMenuPrincipal(): void
+        -leerOpcion(): int
+        -procesarOpcion(int): boolean
+        -registrarEntrada(): void
+        -registrarSalida(): void
+        -consultarVehiculosPresentes(): void
+        -verEstadoParqueadero(): void
+        -verHistorialSalidas(): void
+        -buscarVehiculo(): void
+        -mostrarDetallesVehiculo(Vehiculo): void
+    }
+
+    MenuConsola --> Parqueadero : utiliza
+}
+
+package "com.parqueadero" {
+    class Principal {
+        +{static}main(String[]): void
+    }
+
+    Principal --> MenuConsola : inicia
+}
+
+note right of Vehiculo
+    Clase base abstracta que define
+    la estructura común de todos
+    los vehículos del parqueadero.
+    Implementa polimorfismo mediante
+    métodos abstractos.
+end note
+
+note right of Parqueadero
+    Gestiona la colección de vehículos
+    presentes en el parqueadero y
+    mantiene un historial de todas
+    las transacciones.
+end note
+
+@enduml

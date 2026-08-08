@@ -1,0 +1,259 @@
+================================================================================
+                        BIENVENIDO AL PROYECTO
+           SISTEMA DE GESTIÓN DE PARQUEADERO - ACTIVIDAD 3 POO
+================================================================================
+
+¡Hola! Has abierto un proyecto académico completo de Programación Orientada 
+a Objetos en Java que implementa herencia y polimorfismo.
+
+================================================================================
+                         INICIO RÁPIDO (3 PASOS)
+================================================================================
+
+PASO 1: COMPILAR
+  Windows:  compile.bat
+  Linux:    ./compile.sh
+
+PASO 2: EJECUTAR
+  Windows:  run.bat
+  Linux:    ./run.sh
+
+PASO 3: USAR
+  • Sigue las opciones del menú
+  • Registra vehículos
+  • Consulta el estado del parqueadero
+
+================================================================================
+                          DOCUMENTACIÓN
+================================================================================
+
+📚 COMIENZA AQUÍ:
+   • INDICE.md - Índice principal de documentación
+   • GUIA_RAPIDA.md - Guía de 5 minutos
+   • README.md - Descripción del proyecto
+
+📖 PARA USUARIOS:
+   • GUIA_RAPIDA.md - Cómo compilar y ejecutar
+   • DESPLIEGUE.md - Instalación detallada
+   • CONFIGURACION.md - Configuración técnica
+
+🏗️ PARA DESARROLLADORES:
+   • docs/Informe_Tecnico.md - Análisis técnico completo
+   • ESTRUCTURA.md - Organización del código
+   • diagrama_uml.puml - Diagrama de clases
+
+🎓 PARA APRENDER:
+   • Informe_Tecnico.md - Concepto de herencia y polimorfismo
+   • src/ - Código fuente comentado
+   • diagrama_uml.puml - Relaciones entre clases
+
+================================================================================
+                        CONTENIDO DEL PROYECTO
+================================================================================
+
+📁 src/
+   └── com/parqueadero/
+       ├── modelo/          (Clases de vehículos - Herencia)
+       │   ├── Vehiculo.java
+       │   ├── Automovil.java
+       │   ├── Motocicleta.java
+       │   └── Camion.java
+       ├── gestion/         (Gestión del parqueadero)
+       │   └── Parqueadero.java
+       ├── ui/              (Interfaz de usuario)
+       │   └── MenuConsola.java
+       └── Principal.java   (Punto de entrada)
+
+🔧 Scripts:
+   • compile.bat / compile.sh - Compilar proyecto
+   • run.bat / run.sh - Ejecutar aplicación
+
+📊 Documentación:
+   • 7 archivos markdown con documentación completa
+   • 1 diagrama UML (PlantUML)
+   • 50+ tablas informativas
+   • 3000+ líneas de documentación
+
+================================================================================
+                        CARACTERÍSTICAS PRINCIPALES
+================================================================================
+
+✅ Tres tipos de vehículos (Automóvil, Motocicleta, Camión)
+✅ Registro de entrada y salida de vehículos
+✅ Cálculo automático de tarifas
+✅ Consulta de vehículos presentes
+✅ Historial de transacciones
+✅ Búsqueda por placa
+✅ Interfaz de consola interactiva
+✅ Implementación de HERENCIA y POLIMORFISMO
+✅ Código profesional y bien documentado
+
+================================================================================
+                        TARIFAS DEL PARQUEADERO
+================================================================================
+
+TIPO DE VEHÍCULO        TARIFA POR HORA
+═══════════════════════════════════════════
+Motocicleta             $2,000
+Automóvil               $5,000
+Camión                  $8,000
+
+Nota: Las fracciones de hora se cuentan como horas completas.
+
+================================================================================
+                        CONCEPTOS IMPLEMENTADOS
+================================================================================
+
+1. HERENCIA
+   • Clase base: Vehiculo (abstracta)
+   • Clases derivadas: Automovil, Motocicleta, Camion
+   • Reutilización de código mediante herencia
+
+2. POLIMORFISMO
+   • Método abstracto: calcularTarifa()
+   • Cada subclase implementa su propia versión
+   • Comportamiento diferente según tipo de vehículo
+
+3. ENCAPSULAMIENTO
+   • Atributos protegidos en clase base
+   • Métodos privados en MenuConsola
+   • Getters y setters públicos
+
+4. COMPOSICIÓN
+   • Parqueadero contiene colección de Vehiculos
+   • Relación 1 a muchos
+
+================================================================================
+                    REQUISITOS DEL SISTEMA
+================================================================================
+
+• Java Development Kit (JDK) 8 o superior
+• RAM: 512 MB (mínimo), 2 GB (recomendado)
+• Espacio en disco: 200 MB
+• Sistema Operativo: Windows, Linux o MacOS
+
+================================================================================
+                      PRÓXIMOS PASOS
+================================================================================
+
+1. Lee INDICE.md para navegar toda la documentación
+2. Ejecuta compile.bat (Windows) o ./compile.sh (Linux/MacOS)
+3. Ejecuta run.bat (Windows) o ./run.sh (Linux/MacOS)
+4. Prueba todas las opciones del menú
+5. Estudia el código fuente en src/
+6. Revisa el diagrama UML en diagrama_uml.puml
+7. Lee docs/Informe_Tecnico.md para entender la arquitectura
+
+================================================================================
+                    MENÚ PRINCIPAL DEL SISTEMA
+================================================================================
+
+1. Registrar entrada de vehículo
+   - Selecciona tipo (Automóvil, Motocicleta, Camión)
+   - Ingresa datos del vehículo
+   - Se registra automáticamente
+
+2. Registrar salida de vehículo
+   - Ingresa placa del vehículo
+   - Se calcula automáticamente el costo
+
+3. Consultar vehículos presentes
+   - Muestra lista de todos los vehículos actuales
+   - Detalles específicos de cada tipo
+
+4. Ver estado del parqueadero
+   - Resumen general del parqueadero
+   - Espacios disponibles
+   - Ingreso total
+
+5. Ver historial de salidas
+   - Registro de todos los vehículos que han salido
+   - Costo de cada transacción
+
+6. Buscar vehículo por placa
+   - Busca un vehículo específico
+   - Muestra tiempo y tarifa estimada
+
+7. Salir
+   - Cierra la aplicación
+
+================================================================================
+                      SOLUCIÓN DE PROBLEMAS
+================================================================================
+
+❓ "javac: command not found"
+   → Instala JDK y agrega a PATH
+   → Ver: DESPLIEGUE.md
+
+❓ "No hay espacio disponible"
+   → Capacidad máxima de 30 vehículos
+   → Registra la salida de algunos vehículos
+
+❓ "ClassNotFoundException"
+   → Compila primero: compile.bat o ./compile.sh
+
+❓ "Formato de fecha inválido"
+   → Usa formato: yyyy-MM-dd HH:mm
+   → Ejemplo: 2026-08-07 14:30
+
+❓ Más problemas
+   → Consulta DESPLIEGUE.md#solución-de-problemas
+
+================================================================================
+                      INFORMACIÓN DEL PROYECTO
+================================================================================
+
+Nombre del Proyecto:     Sistema de Gestión de Parqueadero
+Versión:                 1.0.0
+Tipo:                    Proyecto Académico
+Asignatura:              Programación Orientada a Objetos
+Actividad:               3 - Resolución de Problemas usando Herencia
+Lenguaje:                Java 8+
+Arquitectura:            Capas (Modelo, Gestión, UI)
+Archivos Totales:        23
+Líneas de Código:        2,000+
+Líneas de Documentación: 3,000+
+Fecha:                   Agosto 7, 2026
+
+================================================================================
+                    ARCHIVOS IMPORTANTES
+================================================================================
+
+📄 INDICE.md                 → Punto de entrada para documentación
+📄 GUIA_RAPIDA.md            → Cómo compilar y ejecutar (5 min)
+📄 README.md                 → Descripción general del proyecto
+📄 RESUMEN_ENTREGABLES.md    → Verificación de requerimientos
+📁 docs/                     → Carpeta con informe técnico
+📊 diagrama_uml.puml         → Diagrama de clases UML
+📁 src/                      → Código fuente organizado en paquetes
+
+================================================================================
+                    ¡COMIENZA AHORA!
+================================================================================
+
+Opción 1: Quiero usar el sistema INMEDIATAMENTE
+  1. Windows: ejecuta compile.bat
+     Linux: ejecuta ./compile.sh
+  2. Windows: ejecuta run.bat
+     Linux: ejecuta ./run.sh
+
+Opción 2: Quiero aprender cómo funciona
+  1. Lee INDICE.md
+  2. Lee docs/Informe_Tecnico.md
+  3. Estudia el código en src/
+  4. Revisa diagrama_uml.puml
+
+Opción 3: Quiero instalarlo paso a paso
+  1. Lee DESPLIEGUE.md
+  2. Sigue todas las instrucciones
+  3. Verifica tu instalación
+
+================================================================================
+
+Para más información, lee INDICE.md
+
+¡Que disfrutes aprendiendo Programación Orientada a Objetos! 🎉
+
+================================================================================
+                      © 2026 - Proyecto Académico
+================================================================================
